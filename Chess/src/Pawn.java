@@ -52,13 +52,16 @@ public class Pawn extends ChessPiece {
 
     public boolean canAttackToPosition(ChessBoard board, int line, int column, int toLine, int toColumn) {
 
-        if (color.equals("Black")) {
-            if (board.board[toLine][toColumn].getColor().equals("White")) {
-                return (toLine == line - 1 && toColumn == column + 1) || (toLine == line - 1 && toColumn == column - 1);
-            }
-        } else {
-            if (board.board[toLine][toColumn].getColor().equals("Black")) {
-                return (toLine == line + 1 && toColumn == column + 1) || (toLine == line + 1 && toColumn == column - 1);
+        if ((board.board[toLine][toColumn] != null)) {
+
+            if (color.equals("Black")) {
+                if (board.board[toLine][toColumn].getColor().equals("White")) {
+                    return (toLine == line - 1 && toColumn == column + 1) || (toLine == line - 1 && toColumn == column - 1);
+                }
+            } else {
+                if (board.board[toLine][toColumn].getColor().equals("Black")) {
+                    return (toLine == line + 1 && toColumn == column + 1) || (toLine == line + 1 && toColumn == column - 1);
+                }
             }
         }
         return false;
